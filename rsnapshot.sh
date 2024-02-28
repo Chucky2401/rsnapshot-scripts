@@ -11,10 +11,13 @@
 # Parameters
 type=$1
 
+# Constant
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 # Working var
 hostname=$(hostname --fqdn)
-gotifyUrl=$(cat gotifyUrl)
-token=$(cat token)
+gotifyUrl=$(cat $SCRIPT_DIR/gotifyUrl)
+token=$(cat $SCRIPT_DIR/token)
 completeUrl="$gotifyUrl/message?token=$token"
 title=""
 message=""
